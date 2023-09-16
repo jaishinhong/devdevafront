@@ -15,7 +15,7 @@ export default function HomePage() {
         <>
             <NavBar title="User List" />
             <div className="max-w-6xl m-auto mt-10 ">
-                <div className="flex justify-between bg-slate-300 text-black text-lg px-3 py-2 rounded-sm mb-5 flex-1 gap-1">
+                <div className="flex justify-between bg-slate-300 text-black text-lg px-3 py-2 rounded-sm mb-5 flex-1 gap-1 font-medium">
                     <p className="flex-1">Profile Picture</p>
                     <p className="flex-1">First name</p>
                     <p className="flex-1">Last name</p>

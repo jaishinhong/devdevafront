@@ -69,21 +69,23 @@ export default function AddUserPage() {
                             name="image"
                             onChange={handleChange}
                         />
-                        <button
-                            className="px-5 py-3 bg-blue-500 text-white rounded-md"
-                            onClick={handleClick}
-                        >
-                            Upload Profile Picture
-                        </button>
-                        <button
-                            className="px-5 py-3 bg-red-600 text-white rounded-md sm:w-[80%]"
-                            onClick={handleDeletePicture}
-                        >
-                            Delete Picture
-                        </button>
+                        <div className="flex sm:flex-col mb-3 sm:mb-0 gap-3 sm:items-center">
+                            <button
+                                className="px-5 py-3 bg-blue-500 text-white rounded-md"
+                                onClick={handleClick}
+                            >
+                                Upload Profile Picture
+                            </button>
+                            <button
+                                className="px-5 py-3 bg-red-600 text-white rounded-md"
+                                onClick={handleDeletePicture}
+                            >
+                                Delete Picture
+                            </button>
+                        </div>
                     </div>
                     <div className="flex-1 self-end">
-                        <div className="md:flex block gap-5 mb-5">
+                        <div className="md:flex block gap-5 md:mb-5 mb-0">
                             <div className="flex-1 flex flex-col gap-1">
                                 <label
                                     htmlFor="firstName"
@@ -165,13 +167,13 @@ export default function AddUserPage() {
                         className="px-10 py-2 bg-gray-500 text-white rounded-md"
                         onClick={handleCancle}
                     >
-                        Cancel
+                        CANCEL
                     </button>
                     <button
                         className="px-10 py-2 bg-green-500 text-white rounded-md"
                         onClick={handleSave}
                     >
-                        Save
+                        SAVE
                     </button>
                 </div>
             </div>
