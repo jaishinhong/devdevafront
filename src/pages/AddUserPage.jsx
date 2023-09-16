@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import NavBar from "../component/NavBar";
-import { userContext } from "../context/UserContextProvider";
 import { useNavigate } from "react-router-dom";
+import { userContext } from "../context/UserContextProvider";
 
 const initialState = {
     firstName: "",
@@ -33,6 +33,7 @@ export default function AddUserPage() {
 
     const handleDeletePicture = () => {
         setInput({ ...input, image: null });
+        inputEl.current.value = "";
     };
 
     const handleCancle = () => {
@@ -43,7 +44,7 @@ export default function AddUserPage() {
         const answer = confirm("Are you confirm?");
         if (answer) {
             if (!input.firstName || !input.lastName) {
-                alert("First Name or Last Name can not be empty");
+                return alert("First Name or Last Name can not be empty");
             }
             addUser(input);
             navigate("/");
@@ -51,66 +52,67 @@ export default function AddUserPage() {
     };
     return (
         <>
-            <NavBar title="Create new User" />
-            <div className="sm:flex block m-auto mt-5 justify-center gap-16">
-                <div className=" flex flex-col items-center gap-5">
-                    <img
-                        className="w-36 h-36 ring-1 ring-black rounded-full"
-                        src={input.image && URL.createObjectURL(input.image)}
-                    />
-
-                    <input
-                        type="file"
-                        className="hidden"
-                        ref={inputEl}
-                        name="image"
-                        onChange={handleChange}
-                    />
-                    <button
-                        className="bg-blue-500 px-3 py-1 rounded-md text-white"
-                        onClick={handleClick}
-                    >
-                        Update Profile Picture
-                    </button>
-                    <button
-                        className="bg-red-500 text-white px-3 py-1 rounded-md"
-                        onClick={handleDeletePicture}
-                    >
-                        Delete Picture
-                    </button>
-                </div>
-                <div className="flex sm:items-end justify-center">
-                    <form className="flex flex-col md:gap-12">
-                        <div className="md:flex block gap-5">
-                            <div className="flex flex-col">
+            <NavBar title="Create new user" />
+            <div className="px-3">
+                <div className="max-w-5xl sm:flex block m-auto justify-center md:gap-28 gap-10 mt-10">
+                    <div className="flex flex-col items-center gap-5">
+                        <img
+                            src={
+                                input.image && URL.createObjectURL(input.image)
+                            }
+                            className="w-48 h-48 rounded-full ring-1 ring-black"
+                        />
+                        <input
+                            type="file"
+                            className="hidden"
+                            ref={inputEl}
+                            name="image"
+                            onChange={handleChange}
+                        />
+                        <button
+                            className="px-5 py-3 bg-blue-500 text-white rounded-md"
+                            onClick={handleClick}
+                        >
+                            upload profile picture
+                        </button>
+                        <button
+                            className="px-5 py-3 bg-red-500 text-white rounded-md sm:w-[80%]"
+                            onClick={handleDeletePicture}
+                        >
+                            delete picture
+                        </button>
+                    </div>
+                    <div className="flex-1 self-end">
+                        <div className="md:flex block gap-5 mb-5">
+                            <div className="flex-1 flex flex-col gap-1">
                                 <label
                                     htmlFor="firstName"
-                                    className="text-slate-500 text-lg"
+                                    className="text-xl text-gray-500"
                                 >
-                                    First Name
+                                    First name
                                 </label>
                                 <input
-                                    type="text"
                                     id="firstName"
-                                    className="ring-1 ring-slate-400 w-80 px-3 py-2 rounded-md"
-                                    placeholder="Please Enter First Name"
+                                    type="text"
+                                    className="w-full rounded-md ring-1 ring-gray-500 px-3 py-3"
+                                    placeholder="please enter your First name"
                                     name="firstName"
                                     value={input.firstName}
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div className="flex flex-col">
+                            <div className="flex-1 flex flex-col gap-1">
                                 <label
                                     htmlFor="lastName"
                                     className="text-slate-500 text-lg"
                                 >
-                                    last Name
+                                    Last Name
                                 </label>
                                 <input
-                                    type="text"
                                     id="lastName"
-                                    className="ring-1 ring-slate-400 w-80 px-3 py-2 rounded-md"
-                                    placeholder="Please Enter Last Name"
+                                    type="text"
+                                    className="w-full rounded-md ring-1 ring-gray-500 px-3 py-3"
+                                    placeholder="please enter your Last name"
                                     name="lastName"
                                     value={input.lastName}
                                     onChange={handleChange}
@@ -118,15 +120,16 @@ export default function AddUserPage() {
                             </div>
                         </div>
                         <div className="md:flex block gap-5">
-                            <div className="flex flex-col">
+                            <div className="flex-1 flex flex-col gap-1">
                                 <label
-                                    htmlFor="firstName"
+                                    htmlFor="gender"
                                     className="text-slate-500 text-lg"
                                 >
                                     Gender
                                 </label>
                                 <select
-                                    className="ring-1 ring-slate-400 w-80 px-3 py-2 rounded-md"
+                                    id="gender"
+                                    className="w-full rounded-md ring-1 ring-gray-500 px-3 py-3"
                                     name="gender"
                                     value={input.gender}
                                     onChange={handleChange}
@@ -138,40 +141,39 @@ export default function AddUserPage() {
                                     <option value="female">female</option>
                                 </select>
                             </div>
-                            <div className="flex flex-col">
+                            <div className="flex-1 flex flex-col gap-1">
                                 <label
-                                    htmlFor="lastName"
+                                    htmlFor="birthday"
                                     className="text-slate-500 text-lg"
                                 >
                                     Birthday
                                 </label>
                                 <input
+                                    id="birthday"
                                     type="date"
-                                    id="lastName"
-                                    className="ring-1 ring-slate-400 w-80 px-3 py-2 rounded-md"
-                                    placeholder="Please Enter Last Name"
+                                    className="w-full rounded-md ring-1 ring-gray-500 px-3 py-3"
                                     name="birthDate"
                                     onChange={handleChange}
                                     value={input.birthDate}
                                 />
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-            <div className="max-w-[900px] m-auto flex md:justify-end justify-center mt-10 gap-5">
-                <button
-                    className="px-10 py-1 bg-gray-500 text-white rounded-md"
-                    onClick={handleCancle}
-                >
-                    Cancel
-                </button>
-                <button
-                    className="px-10 py-1 bg-green-500 text-white rounded-md"
-                    onClick={handleSave}
-                >
-                    Save
-                </button>
+                <div className="max-w-5xl m-auto flex sm:justify-end justify-center mt-20 gap-5">
+                    <button
+                        className="px-10 py-2 bg-gray-500 text-white rounded-md"
+                        onClick={handleCancle}
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        className="px-10 py-2 bg-green-500 text-white rounded-md"
+                        onClick={handleSave}
+                    >
+                        Save
+                    </button>
+                </div>
             </div>
         </>
     );
