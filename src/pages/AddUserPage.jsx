@@ -60,7 +60,7 @@ export default function AddUserPage() {
                             src={
                                 input.image && URL.createObjectURL(input.image)
                             }
-                            className="w-48 h-48 rounded-full ring-1 ring-black"
+                            className="w-48 h-48 rounded-full ring-1 ring-gray-500"
                         />
                         <input
                             type="file"
@@ -73,13 +73,13 @@ export default function AddUserPage() {
                             className="px-5 py-3 bg-blue-500 text-white rounded-md"
                             onClick={handleClick}
                         >
-                            upload profile picture
+                            Upload Profile Picture
                         </button>
                         <button
-                            className="px-5 py-3 bg-red-500 text-white rounded-md sm:w-[80%]"
+                            className="px-5 py-3 bg-red-600 text-white rounded-md sm:w-[80%]"
                             onClick={handleDeletePicture}
                         >
-                            delete picture
+                            Delete Picture
                         </button>
                     </div>
                     <div className="flex-1 self-end">
