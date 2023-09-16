@@ -46,7 +46,7 @@ export default function HomePage() {
                                 <h1 className="flex-1">{el.birthDate}</h1>
                                 <div className="flex gap-3 flex-1">
                                     <button
-                                        className="flex-1 h-10 bg-orange-400 text-white"
+                                        className="flex-1 h-10 bg-orange-400 text-white hover:bg-orange-500"
                                         onClick={() =>
                                             navigate(`/editUser/${i}`)
                                         }
@@ -54,7 +54,7 @@ export default function HomePage() {
                                         Edit
                                     </button>
                                     <button
-                                        className="flex-1 h-10 bg-red-400 text-white"
+                                        className="flex-1 h-10 bg-red-500 text-white hover:bg-red-600"
                                         onClick={() => onDelete(i)}
                                     >
                                         Delete

@@ -43,6 +43,7 @@ export default function EditUserPage() {
 
     const handleCancle = () => {
         setInput(initialState);
+        navigate("/");
     };
 
     const handleSave = () => {
@@ -77,13 +78,13 @@ export default function EditUserPage() {
                         />
                         <div className="flex sm:flex-col mb-3 sm:mb-0 gap-3 sm:items-center">
                             <button
-                                className="px-5 py-3 bg-blue-500 text-white rounded-md"
+                                className="px-5 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                                 onClick={handleClick}
                             >
                                 Upload Profile Picture
                             </button>
                             <button
-                                className="px-5 py-3 bg-red-600 text-white rounded-md"
+                                className="px-5 py-3 bg-red-600 text-white rounded-md hover:bg-red-700"
                                 onClick={handleDeletePicture}
                             >
                                 Delete Picture
@@ -170,13 +171,13 @@ export default function EditUserPage() {
                 </div>
                 <div className="max-w-5xl m-auto flex sm:justify-end justify-center mt-20 gap-5">
                     <button
-                        className="px-10 py-2 bg-gray-500 text-white rounded-md"
+                        className="px-10 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
                         onClick={handleCancle}
                     >
                         CANCEL
                     </button>
                     <button
-                        className="px-10 py-2 bg-green-500 text-white rounded-md"
+                        className="px-10 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
                         onClick={handleSave}
                     >
                         SAVE
